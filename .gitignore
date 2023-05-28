@@ -1,0 +1,8 @@
+*.app
+*.exe
+
+*/__pycache__/*
+*.pyc
+data/
+*/migrations/*
+db.*
