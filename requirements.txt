@@ -1,0 +1,6 @@
+django-extensions==3.2.1
+djangorestframework==3.13.1
+ipdb==0.13.9
+ipython==8.3.0
+Django==4.0.5
+requests==2.31.0
