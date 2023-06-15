@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import CustomUser
 from projects.models import Project
 
 # Create your models here.
@@ -17,7 +17,7 @@ class Issue(models.Model):
     )
     issue_name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
-    assignee = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name='assigned_issues')
+    assignee = models.ForeignKey(to=CustomUser, on_delete=models.PROTECT, related_name='assigned_issues')
     priority = models.SmallIntegerField(choices=PRIORITIES, default=1)
     project_linked = models.ForeignKey(to=Project,on_delete=models.PROTECT, related_name='linked_project')
     status =models.SmallIntegerField(choices=STATUSES, default=1)
@@ -29,7 +29,7 @@ class Comment(models.Model):
     issue = models.ForeignKey(Issue, on_delete=models.PROTECT, related_name='comments')
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    author = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
 
     # Additional fields and methods as needed
 
